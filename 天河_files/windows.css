@@ -1,0 +1,32 @@
+﻿.Sowdiv{border:3px solid #eb6d32;background-color:#fff;position:absolute; z-index:99999;}
+.Sowdivbgs{position:absolute;display:none;z-index:10;left:0px;top:0px;width:100%;height:100%;background-color:#666666;filter:Alpha(opacity=20);opacity:0.2;}
+.wintablebox{background-color:#EBEBEB; width:100%; height:100%;}
+.wintablebox tr{}
+.wintablebox tr td{}
+.wintablebox tr.wintablebox_titbg{background:url(../images/dialog_bg.gif);}
+.wintablebox tr.wintablebox_titbg td{ height:24px;}
+.wintablebox tr.wintablebox_titbg td.Sowdivtit{color:#94160a; font-weight:bold;padding-left:5px width:63%;}
+.wintablebox tr.wintablebox_titbg td.Sowdivico{width:4%;}
+.wintablebox tr.wintablebox_titbg td.Sowdivico div{background:url(../images/dialog_ico.png); width:16px; height:16px; margin-left:5px;}
+.wintablebox tr.wintablebox_titbg td.Sowdivclose{padding-right:5px; width:33%;}
+.wintablebox tr.wintablebox_titbg td.Sowdivclose div{background:url(../images/dialog_close.gif); width:16px; height:16px; float:right; margin-right:5px;}
+.wintablebox tr.wintablebox_cot{}
+
+.w_inp1, .w_inp1m, .w_btn2, .w_btn2m, .w_btn3, .w_btn3m{background-image:url(../images/frame1.gif);background-repeat:no-repeat}
+.w_inp1, .w_inp1m{border:1px solid #b0b0b0;height:20px;height/**/:18px;padding-top:1px;padding-left:1px!important;padding-left:2px;color:#000}
+.w_inp1{background-position:-0px 0;color:#000}
+.w_inp1m{border:1px solid #A7BBD3;background-position:-476px 0;color:#000;border-color: #FF8800;}
+.w_btn2, .w_btn2m{width:66px;height:17px;border:0px none; padding-top:3px!important;padding-top:3px;padding-top/**/:3px !important;padding-bottom:2px!important;margin-bottom:0;color:#0C3E09;background-color:transparent;background-position: -943px 0;cursor:hand!important;cursor:hand !important}
+.w_btn2{width:66px;background-position:-943px 0}
+.w_btn2m{cursor: hand;width:66px;background-position:-1010px 0}
+.w_btn3, .w_btn3m{width:44px;height:17px;border:0px none; padding-top:3px!important;padding-top:3px;padding-top/**/:3px !important;padding-bottom:2px!important;margin-bottom:0;color:#0C3E09;background-color:transparent;cursor:hand!important;cursor:hand !important}
+.w_btn3{width:44px;background-position:-1077px 0}
+.w_btn3m{cursor: hand;width:44px;background-position:-1122px 0}
+
+.w_Ball_List {background-color:#b2837f;border:0px #b2837f solid;position: relative;}
+.w_td_caption_1{background-image: url(../images/bg.jpg);line-height: 24px;text-align:center;color:#4a1a04;font-weight: bold;}
+.w_Ball_tr_H {line-height: 16px;text-align: center;background-color: #FFFFFF;height: 27px;}
+
+
+
+

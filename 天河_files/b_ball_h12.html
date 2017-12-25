@@ -1,0 +1,1238 @@
+
+<!-- saved from url=(0058)http://alia7557.banlion.cn:45699/member/game/b_ball_h12.do -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<link href="./main_n1.css" rel="stylesheet" type="text/css">
+<link href="./ball_3.css" rel="stylesheet" type="text/css">
+<link href="./windows.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" language="JavaScript" src="./div_window.js.下载"></script>
+<script type="text/javascript" language="JavaScript" src="./lang_zh_TW.js.下载"></script>
+<script type="text/javascript" language="JavaScript" src="./ajax.js.下载"></script>
+<script type="text/javascript" language="JavaScript" src="./forbid.js(1).下载"></script>
+<script type="text/javascript" language="JavaScript" src="./page_common.js.下载"></script>
+<script type="text/javascript" language="JavaScript" src="./page_order.js.下载"></script>
+<script type="text/javascript" language="JavaScript" src="./page_refresh.js.下载"></script>
+<script type="text/javascript">
+var rateAjax;
+var issueAjax;
+var lastIssueAjax;
+var otherAjax;
+
+var localType = "RIGHT";
+var gameType = 'B';
+var pageType = 'H12';
+var userSet = 'C';
+var ballIdx = '';
+var _isShortcut = '0';
+var isDetailRate = '1';
+var zTipStr = '按此下註';
+var zTxtStr = '封盤';
+var _sysStartTime = '090230';
+var _sysEndTime = '235730';
+var _loginOutPage = 'http://www.baidu.com';
+var _resultSecond = 5 * 1000;
+var _pageTimeNum = 90;
+var _isCloseTxt = 0; //是否封盘
+
+var zBallTagList = new Array("B-H12-3","B-H12-4","B-H12-5","B-H12-6","B-H12-7","B-H12-8","B-H12-9"
+		 ,"B-H12-10","B-H12-11","B-H12-12","B-H12-13","B-H12-14","B-H12-15","B-H12-16","B-H12-17","B-H12-18","B-H12-19"
+		 ,"B-HDX-1","B-HDX-0","B-HDS-1","B-HDS-2"
+		 ,"B-B1-1","B-B1-2","B-B1-3","B-B1-4","B-B1-5","B-B1-6","B-B1-7","B-B1-8","B-B1-9","B-B1-10"
+		 ,"B-LH-1L","B-LH-1H","B-DX-11","B-DX-10","B-DS-11","B-DS-12"
+		 ,"B-B2-1","B-B2-2","B-B2-3","B-B2-4","B-B2-5","B-B2-6","B-B2-7","B-B2-8","B-B2-9","B-B2-10"
+		 ,"B-LH-2L","B-LH-2H","B-DX-21","B-DX-20","B-DS-21","B-DS-22");
+
+var hShortcutList = new Array();
+var vShortcutList = new Array("span_shortcut_money_1","span_shortcut_money_2");
+var shortcutTextList = new Array("shortcut_money_1","shortcut_money_2");
+
+var curIssueID = "";
+var lastIssueID = "";
+function init()
+{
+	toleft_index_jeu(true); //左侧初始化到用户信息界面
+	
+	refreshIssue(gameType, curIssueID);		//刷新当前期数信息
+	refreshLastIssue(gameType, lastIssueID);//刷新上期开奖信息
+	refreshRateVal(gameType, curIssueID);	//刷新当期赔率信息
+	refreshResultTop(); 	//刷新排行榜
+	refreshFootResult();	//刷新Foot结果
+	
+	startPageInterval();	//重新开启时间倒计时
+	document.getElementById("pageTypeName").innerHTML = "冠、亞軍 組合"; //页面玩法名称
+}
+</script>
+</head>
+
+<body onload="init();">
+<span id="sound_swf"><embed src="clarion.swf" loop="false" autostart="false" mastersound="" hidden="true" width="0" height="0"></span>
+
+
+
+
+
+
+
+<table border="0" cellspacing="0" cellpadding="0" width="700">
+<tbody>
+<tr>
+<td class="F_bold" height="27" width="40%">
+北京賽車(PK10)
+&nbsp;&nbsp;&nbsp;&nbsp;
+<span style="POSITION: relative; FILTER: blur(add=1, direction=45, strength=3); FONT-FAMILY: Arial; HEIGHT: 10px; COLOR: red; FONT-SIZE: 10pt">今天輸贏：</span>
+<span id="UserSurplus" class="font_r">0</span>
+</td>
+<td width="60%" align="right">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td height="27" width="150" align="right"><b id="Cur_Award_Issue" class="Font_Y">658149</b><b>期賽果</b>&nbsp;</td>
+<td id="BaLL_No1" width="26" class="No_3">&nbsp;</td>
+<td id="BaLL_No2" width="26" class="No_10">&nbsp;</td>
+<td id="BaLL_No3" width="26" class="No_6">&nbsp;</td>
+<td id="BaLL_No4" width="26" class="No_4">&nbsp;</td>
+<td id="BaLL_No5" width="26" class="No_7">&nbsp;</td>
+<td id="BaLL_No6" width="26" class="No_2">&nbsp;</td>
+<td id="BaLL_No7" width="26" class="No_8">&nbsp;</td>
+<td id="BaLL_No8" width="26" class="No_5">&nbsp;</td>
+<td id="BaLL_No9" width="26" class="No_9">&nbsp;</td>
+<td id="BaLL_No10" width="26" class="No_1">&nbsp;</td>
+</tr></tbody></table>
+</td></tr></tbody></table>
+<table border="0" cellspacing="0" cellpadding="0" width="700">
+<tbody>
+<tr>
+<td height="24" width="28%"><b id="Cur_Issue" class="Font_G">658149</b>期　<b class="font_b" id="pageTypeName">冠、亞軍 組合</b></td>
+<td width="25%" align="right">距離封盤：<span id="ClockTime_C">00:00</span></td>
+<td width="25%" align="right">距離開獎：<span id="ClockTime_O" class="Font_R">00:00</span></td>
+<td width="22%" align="right"><span id="Update_Time">65&nbsp;秒</span></td>
+</tr></tbody></table>
+
+
+
+
+
+<table border="0" cellspacing="0" cellpadding="0" width="700">
+<tbody>
+<tr>
+<td width="200" height="30" align="left">投注類型：
+<span id="span_shortcut_1" onclick="setShortcutType(1)" class="shortcut_btn">快捷</span>&nbsp;
+<span id="span_shortcut_0" onclick="setShortcutType(0)" class="shortcut_btn_on">一般</span>
+</td>
+<td width="300" align="center">
+<span id="span_shortcut_money_2" style="display:none">金額&nbsp;<input type="text" id="shortcut_money_2" name="shortcut_money_2" onblur="this.className=&#39;inp1&#39;;" class="inp1" onfocus="this.className=&#39;inp1m&#39;" onkeypress="digitOnly(event)" onkeyup="TxtToBtnOrder(event,this,&#39;btn_order_2&#39;)" maxlength="12" size="10"></span>
+<input type="button" id="btn_reset_2" name="btn_reset_2" class="btn2" onmouseover="this.className=&#39;btn2m&#39;" onmouseout="this.className=&#39;btn2&#39;" onclick="eliminate_jeu();" value="重 填">
+<input type="button" id="btn_order_2" name="btn_order_2" class="btn2" onmouseover="this.className=&#39;btn2m&#39;" onmouseout="this.className=&#39;btn2&#39;" onclick="confirm_Order_Tip(2);" value="下 註">
+</td>
+<td width="200" align="right"></td>
+</tr></tbody></table>
+<table id="tab_all_input" border="0" cellspacing="0" cellpadding="0" width="700">
+<tbody>
+<tr><td>
+<table border="0" cellspacing="0" cellpadding="0" width="700">
+<tbody>
+<tr><td class="td_caption_1 F_bold" colspan="4">冠、亞軍和 （冠軍車號＋亞軍車號 ＝ 和）</td></tr>
+<tr>
+<td valign="top">
+<table class="Ball_List" border="0" cellspacing="1" cellpadding="0" width="175">
+<tbody>
+<tr id="B-H12-3.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-H12-3.name" class="Jut_caption_1" width="54">3</td>
+<td id="B-H12-3.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-H12-3&quot;)">-</td>
+<td id="B-H12-3.rate_td" width="59"><span class="multiple_Red">-</span></td>
+<td id="B-H12-3.money_td" proname="冠亞軍和" ballproname="冠亞軍和『 3 』" width="62">封盤</td>
+</tr>
+<tr id="B-H12-7.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-H12-7.name" class="Jut_caption_1" width="54">7</td>
+<td id="B-H12-7.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-H12-7&quot;)">-</td>
+<td id="B-H12-7.rate_td" width="59"><span class="multiple_Red">-</span></td>
+<td id="B-H12-7.money_td" proname="冠亞軍和" ballproname="冠亞軍和『 7 』" width="62">封盤</td>
+</tr>
+<tr id="B-H12-11.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-H12-11.name" class="Jut_caption_1" width="54">11</td>
+<td id="B-H12-11.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-H12-11&quot;)">-</td>
+<td id="B-H12-11.rate_td" width="59"><span class="multiple_Red">-</span></td>
+<td id="B-H12-11.money_td" proname="冠亞軍和" ballproname="冠亞軍和『 11 』" width="62">封盤</td>
+</tr>
+<tr id="B-H12-15.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-H12-15.name" class="Jut_caption_1" width="54">15</td>
+<td id="B-H12-15.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-H12-15&quot;)">-</td>
+<td id="B-H12-15.rate_td" width="59"><span class="multiple_Red">-</span></td>
+<td id="B-H12-15.money_td" proname="冠亞軍和" ballproname="冠亞軍和『 15 』" width="62">封盤</td>
+</tr>
+<tr id="B-H12-19.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-H12-19.name" class="Jut_caption_1" width="54">19</td>
+<td id="B-H12-19.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-H12-19&quot;)">-</td>
+<td id="B-H12-19.rate_td" width="59"><span class="multiple_Red">-</span></td>
+<td id="B-H12-19.money_td" proname="冠亞軍和" ballproname="冠亞軍和『 19 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+<td valign="top">
+<table class="Ball_List" border="0" cellspacing="1" cellpadding="0" width="175">
+<tbody>
+<tr id="B-H12-4.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-H12-4.name" class="Jut_caption_1" width="54">4</td>
+<td id="B-H12-4.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-H12-4&quot;)">-</td>
+<td id="B-H12-4.rate_td" width="59"><span class="multiple_Red">-</span></td>
+<td id="B-H12-4.money_td" proname="冠亞軍和" ballproname="冠亞軍和『 4 』" width="62">封盤</td>
+</tr>
+<tr id="B-H12-8.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-H12-8.name" class="Jut_caption_1" width="54">8</td>
+<td id="B-H12-8.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-H12-8&quot;)">-</td>
+<td id="B-H12-8.rate_td" width="59"><span class="multiple_Red">-</span></td>
+<td id="B-H12-8.money_td" proname="冠亞軍和" ballproname="冠亞軍和『 8 』" width="62">封盤</td>
+</tr>
+<tr id="B-H12-12.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-H12-12.name" class="Jut_caption_1" width="54">12</td>
+<td id="B-H12-12.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-H12-12&quot;)">-</td>
+<td id="B-H12-12.rate_td" width="59"><span class="multiple_Red">-</span></td>
+<td id="B-H12-12.money_td" proname="冠亞軍和" ballproname="冠亞軍和『 12 』" width="62">封盤</td>
+</tr>
+<tr id="B-H12-16.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-H12-16.name" class="Jut_caption_1" width="54">16</td>
+<td id="B-H12-16.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-H12-16&quot;)">-</td>
+<td id="B-H12-16.rate_td" width="59"><span class="multiple_Red">-</span></td>
+<td id="B-H12-16.money_td" proname="冠亞軍和" ballproname="冠亞軍和『 16 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+<td valign="top">
+<table class="Ball_List" border="0" cellspacing="1" cellpadding="0" width="175">
+<tbody>
+<tr id="B-H12-5.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-H12-5.name" class="Jut_caption_1" width="54">5</td>
+<td id="B-H12-5.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-H12-5&quot;)">-</td>
+<td id="B-H12-5.rate_td" width="59"><span class="multiple_Red">-</span></td>
+<td id="B-H12-5.money_td" proname="冠亞軍和" ballproname="冠亞軍和『 5 』" width="62">封盤</td>
+</tr>
+<tr id="B-H12-9.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-H12-9.name" class="Jut_caption_1" width="54">9</td>
+<td id="B-H12-9.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-H12-9&quot;)">-</td>
+<td id="B-H12-9.rate_td" width="59"><span class="multiple_Red">-</span></td>
+<td id="B-H12-9.money_td" proname="冠亞軍和" ballproname="冠亞軍和『 9 』" width="62">封盤</td>
+</tr>
+<tr id="B-H12-13.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-H12-13.name" class="Jut_caption_1" width="54">13</td>
+<td id="B-H12-13.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-H12-13&quot;)">-</td>
+<td id="B-H12-13.rate_td" width="59"><span class="multiple_Red">-</span></td>
+<td id="B-H12-13.money_td" proname="冠亞軍和" ballproname="冠亞軍和『 13 』" width="62">封盤</td>
+</tr>
+<tr id="B-H12-17.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-H12-17.name" class="Jut_caption_1" width="54">17</td>
+<td id="B-H12-17.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-H12-17&quot;)">-</td>
+<td id="B-H12-17.rate_td" width="59"><span class="multiple_Red">-</span></td>
+<td id="B-H12-17.money_td" proname="冠亞軍和" ballproname="冠亞軍和『 17 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+<td valign="top">
+<table class="Ball_List" border="0" cellspacing="1" cellpadding="0" width="175">
+<tbody>
+<tr id="B-H12-6.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-H12-6.name" class="Jut_caption_1" width="54">6</td>
+<td id="B-H12-6.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-H12-6&quot;)">-</td>
+<td id="B-H12-6.rate_td" width="59"><span class="multiple_Red">-</span></td>
+<td id="B-H12-6.money_td" proname="冠亞軍和" ballproname="冠亞軍和『 6 』" width="62">封盤</td>
+</tr>
+<tr id="B-H12-10.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-H12-10.name" class="Jut_caption_1" width="54">10</td>
+<td id="B-H12-10.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-H12-10&quot;)">-</td>
+<td id="B-H12-10.rate_td" width="59"><span class="multiple_Red">-</span></td>
+<td id="B-H12-10.money_td" proname="冠亞軍和" ballproname="冠亞軍和『 10 』" width="62">封盤</td>
+</tr>
+<tr id="B-H12-14.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-H12-14.name" class="Jut_caption_1" width="54">14</td>
+<td id="B-H12-14.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-H12-14&quot;)">-</td>
+<td id="B-H12-14.rate_td" width="59"><span class="multiple_Red">-</span></td>
+<td id="B-H12-14.money_td" proname="冠亞軍和" ballproname="冠亞軍和『 14 』" width="62">封盤</td>
+</tr>
+<tr id="B-H12-18.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-H12-18.name" class="Jut_caption_1" width="54">18</td>
+<td id="B-H12-18.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-H12-18&quot;)">-</td>
+<td id="B-H12-18.rate_td" width="59"><span class="multiple_Red">-</span></td>
+<td id="B-H12-18.money_td" proname="冠亞軍和" ballproname="冠亞軍和『 18 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+</tr></tbody></table>
+<table border="0" cellspacing="0" cellpadding="0" width="700">
+<tbody>
+<tr>
+<td>
+<table class="Ball_List" border="0" cellspacing="1" cellpadding="0" width="175">
+<tbody>
+<tr id="B-HDX-1.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-HDX-1.name" class="Jut_caption_1" width="54">冠亞大</td>
+<td id="B-HDX-1.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-HDX-1&quot;)">-</td>
+<td id="B-HDX-1.rate_td" width="59"><span class="multiple_Red">-</span></td>
+<td id="B-HDX-1.money_td" proname="冠亞軍和大小" ballproname="冠亞大" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+<td>
+<table class="Ball_List" border="0" cellspacing="1" cellpadding="0" width="175">
+<tbody>
+<tr id="B-HDX-0.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-HDX-0.name" class="Jut_caption_1" width="54">冠亞小</td>
+<td id="B-HDX-0.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-HDX-0&quot;)">-</td>
+<td id="B-HDX-0.rate_td" width="59"><span class="multiple_Red">-</span></td>
+<td id="B-HDX-0.money_td" proname="冠亞軍和大小" ballproname="冠亞小" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+<td>
+<table class="Ball_List" border="0" cellspacing="1" cellpadding="0" width="175">
+<tbody>
+<tr id="B-HDS-1.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-HDS-1.name" class="Jut_caption_1" width="54">冠亞單</td>
+<td id="B-HDS-1.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-HDS-1&quot;)">-</td>
+<td id="B-HDS-1.rate_td" width="59"><span class="multiple_Red">-</span></td>
+<td id="B-HDS-1.money_td" proname="冠亞軍和單雙" ballproname="冠亞單" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+<td>
+<table class="Ball_List" border="0" cellspacing="1" cellpadding="0" width="175">
+<tbody>
+<tr id="B-HDS-2.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-HDS-2.name" class="Jut_caption_1" width="54">冠亞雙</td>
+<td id="B-HDS-2.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-HDS-2&quot;)">-</td>
+<td id="B-HDS-2.rate_td" width="59"><span class="multiple_Red">-</span></td>
+<td id="B-HDS-2.money_td" proname="冠亞軍和單雙" ballproname="冠亞雙" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+</tr></tbody></table>
+<div id="Foot_Div"><table class="Ball_List" border="0" cellspacing="1" cellpadding="0" width="700">
+<tbody>
+<tr>
+<td id="Foot-Top.0" class="td_caption_2 F_bold"><a onfocus="this.blur()" onclick="Read_Foot_Result(0,3,&quot;td_caption_1 F_bold&quot;,&quot;td_caption_2 F_bold&quot;)" href="javascript:void(0)">冠亞軍和</a></td>
+<td id="Foot-Top.1" class="td_caption_1 F_bold"><a onfocus="this.blur()" onclick="Read_Foot_Result(1,3,&quot;td_caption_1 F_bold&quot;,&quot;td_caption_2 F_bold&quot;)" href="javascript:void(0)">冠亞軍和大小</a></td>
+<td id="Foot-Top.2" class="td_caption_1 F_bold"><a onfocus="this.blur()" onclick="Read_Foot_Result(2,3,&quot;td_caption_1 F_bold&quot;,&quot;td_caption_2 F_bold&quot;)" href="javascript:void(0)">冠亞軍和單雙</a></td>
+</tr>
+<tr class="Ball_tr_H">
+<td colspan="3">
+<table id="Foot-Tab.0" class="Ball_List" border="0" cellspacing="1" cellpadding="0" width="696">
+<tbody>
+<tr class="Ball_tr_H" valign="top">
+<td id="Foot-H12-Td.0" width="28">
+19
+</td>
+<td id="Foot-H12-Td.1" class="Jut_caption_1" width="28">
+3
+</td>
+<td id="Foot-H12-Td.2" width="28">
+16
+</td>
+<td id="Foot-H12-Td.3" class="Jut_caption_1" width="28">
+14
+</td>
+<td id="Foot-H12-Td.4" width="28">
+8
+<br>
+8
+</td>
+<td id="Foot-H12-Td.5" class="Jut_caption_1" width="28">
+16
+</td>
+<td id="Foot-H12-Td.6" width="28">
+6
+</td>
+<td id="Foot-H12-Td.7" class="Jut_caption_1" width="28">
+9
+</td>
+<td id="Foot-H12-Td.8" width="28">
+16
+</td>
+<td id="Foot-H12-Td.9" class="Jut_caption_1" width="28">
+6
+</td>
+<td id="Foot-H12-Td.10" width="28">
+9
+</td>
+<td id="Foot-H12-Td.11" class="Jut_caption_1" width="28">
+11
+</td>
+<td id="Foot-H12-Td.12" width="28">
+14
+</td>
+<td id="Foot-H12-Td.13" class="Jut_caption_1" width="28">
+12
+</td>
+<td id="Foot-H12-Td.14" width="28">
+13
+</td>
+<td id="Foot-H12-Td.15" class="Jut_caption_1" width="28">
+8
+</td>
+<td id="Foot-H12-Td.16" width="28">
+10
+</td>
+<td id="Foot-H12-Td.17" class="Jut_caption_1" width="28">
+6
+</td>
+<td id="Foot-H12-Td.18" width="28">
+12
+</td>
+<td id="Foot-H12-Td.19" class="Jut_caption_1" width="28">
+15
+</td>
+<td id="Foot-H12-Td.20" width="28">
+17
+</td>
+<td id="Foot-H12-Td.21" class="Jut_caption_1" width="28">
+9
+</td>
+<td id="Foot-H12-Td.22" width="28">
+5
+</td>
+<td id="Foot-H12-Td.23" class="Jut_caption_1" width="28">
+9
+</td>
+<td id="Foot-H12-Td.24" width="28">
+13
+</td>
+</tr></tbody></table>
+<table id="Foot-Tab.1" class="Ball_List" style="display:none;" border="0" cellspacing="1" cellpadding="0" width="696">
+<tbody>
+<tr class="Ball_tr_H" valign="top">
+<td id="Foot-HDX-Td.0" width="28">
+大
+<br>
+大
+<br>
+大
+</td>
+<td id="Foot-HDX-Td.1" class="Jut_caption_1" width="28">
+小
+</td>
+<td id="Foot-HDX-Td.2" width="28">
+大
+<br>
+大
+</td>
+<td id="Foot-HDX-Td.3" class="Jut_caption_1" width="28">
+小
+</td>
+<td id="Foot-HDX-Td.4" width="28">
+大
+<br>
+大
+</td>
+<td id="Foot-HDX-Td.5" class="Jut_caption_1" width="28">
+小
+<br>
+小
+</td>
+<td id="Foot-HDX-Td.6" width="28">
+大
+</td>
+<td id="Foot-HDX-Td.7" class="Jut_caption_1" width="28">
+小
+<br>
+小
+<br>
+小
+</td>
+<td id="Foot-HDX-Td.8" width="28">
+大
+<br>
+大
+</td>
+<td id="Foot-HDX-Td.9" class="Jut_caption_1" width="28">
+小
+<br>
+小
+</td>
+<td id="Foot-HDX-Td.10" width="28">
+大
+<br>
+大
+<br>
+大
+</td>
+<td id="Foot-HDX-Td.11" class="Jut_caption_1" width="28">
+小
+</td>
+<td id="Foot-HDX-Td.12" width="28">
+大
+<br>
+大
+<br>
+大
+<br>
+大
+</td>
+<td id="Foot-HDX-Td.13" class="Jut_caption_1" width="28">
+小
+</td>
+<td id="Foot-HDX-Td.14" width="28">
+大
+<br>
+大
+</td>
+<td id="Foot-HDX-Td.15" class="Jut_caption_1" width="28">
+小
+<br>
+小
+</td>
+<td id="Foot-HDX-Td.16" width="28">
+大
+</td>
+<td id="Foot-HDX-Td.17" class="Jut_caption_1" width="28">
+小
+<br>
+小
+</td>
+<td id="Foot-HDX-Td.18" width="28">
+大
+</td>
+<td id="Foot-HDX-Td.19" class="Jut_caption_1" width="28">
+小
+<br>
+小
+<br>
+小
+</td>
+<td id="Foot-HDX-Td.20" width="28">
+大
+<br>
+大
+<br>
+大
+</td>
+<td id="Foot-HDX-Td.21" class="Jut_caption_1" width="28">
+小
+<br>
+小
+<br>
+小
+</td>
+<td id="Foot-HDX-Td.22" width="28">
+大
+<br>
+大
+<br>
+大
+</td>
+<td id="Foot-HDX-Td.23" class="Jut_caption_1" width="28">
+小
+<br>
+小
+<br>
+小
+</td>
+<td id="Foot-HDX-Td.24" width="28">
+大
+</td>
+</tr></tbody></table>
+<table id="Foot-Tab.2" class="Ball_List" style="display:none;" border="0" cellspacing="1" cellpadding="0" width="696">
+<tbody>
+<tr class="Ball_tr_H" valign="top">
+<td id="Foot-HDS-Td.0" width="28">
+單
+<br>
+單
+</td>
+<td id="Foot-HDS-Td.1" class="Jut_caption_1" width="28">
+雙
+</td>
+<td id="Foot-HDS-Td.2" width="28">
+單
+<br>
+單
+<br>
+單
+<br>
+單
+<br>
+單
+<br>
+單
+<br>
+單
+</td>
+<td id="Foot-HDS-Td.3" class="Jut_caption_1" width="28">
+雙
+</td>
+<td id="Foot-HDS-Td.4" width="28">
+單
+</td>
+<td id="Foot-HDS-Td.5" class="Jut_caption_1" width="28">
+雙
+</td>
+<td id="Foot-HDS-Td.6" width="28">
+單
+<br>
+單
+<br>
+單
+</td>
+<td id="Foot-HDS-Td.7" class="Jut_caption_1" width="28">
+雙
+<br>
+雙
+</td>
+<td id="Foot-HDS-Td.8" width="28">
+單
+</td>
+<td id="Foot-HDS-Td.9" class="Jut_caption_1" width="28">
+雙
+<br>
+雙
+<br>
+雙
+<br>
+雙
+<br>
+雙
+<br>
+雙
+<br>
+雙
+<br>
+雙
+<br>
+雙
+<br>
+雙
+</td>
+<td id="Foot-HDS-Td.10" width="28">
+單
+<br>
+單
+<br>
+單
+</td>
+<td id="Foot-HDS-Td.11" class="Jut_caption_1" width="28">
+雙
+</td>
+<td id="Foot-HDS-Td.12" width="28">
+單
+<br>
+單
+<br>
+單
+<br>
+單
+<br>
+單
+<br>
+單
+<br>
+單
+<br>
+單
+<br>
+單
+</td>
+<td id="Foot-HDS-Td.13" class="Jut_caption_1" width="28">
+雙
+<br>
+雙
+</td>
+<td id="Foot-HDS-Td.14" width="28">
+單
+</td>
+<td id="Foot-HDS-Td.15" class="Jut_caption_1" width="28">
+雙
+<br>
+雙
+<br>
+雙
+</td>
+<td id="Foot-HDS-Td.16" width="28">
+單
+<br>
+單
+<br>
+單
+</td>
+<td id="Foot-HDS-Td.17" class="Jut_caption_1" width="28">
+雙
+<br>
+雙
+<br>
+雙
+<br>
+雙
+<br>
+雙
+<br>
+雙
+</td>
+<td id="Foot-HDS-Td.18" width="28">
+單
+</td>
+<td id="Foot-HDS-Td.19" class="Jut_caption_1" width="28">
+雙
+<br>
+雙
+</td>
+<td id="Foot-HDS-Td.20" width="28">
+單
+<br>
+單
+</td>
+<td id="Foot-HDS-Td.21" class="Jut_caption_1" width="28">
+雙
+<br>
+雙
+</td>
+<td id="Foot-HDS-Td.22" width="28">
+單
+</td>
+<td id="Foot-HDS-Td.23" class="Jut_caption_1" width="28">
+雙
+<br>
+雙
+<br>
+雙
+<br>
+雙
+</td>
+<td id="Foot-HDS-Td.24" width="28">
+單
+<br>
+單
+<br>
+單
+<br>
+單
+<br>
+單
+<br>
+單
+</td>
+</tr></tbody></table>
+</td></tr></tbody></table>
+
+</div>
+<table border="0" style="margin-top:5px" cellspacing="0" cellpadding="0" width="700">
+<tbody>
+<tr><td class="td_caption_1 F_bold" colspan="4">冠軍</td></tr>
+<tr>
+<td valign="top">
+<table class="Ball_List" border="0" cellspacing="1" cellpadding="0" width="175">
+<tbody>
+<tr>
+<td colspan="3" style="border:0;">
+<table border="0" cellspacing="0" cellpadding="0" width="173">
+<tbody>
+<tr id="B-B1-1.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-B1-1.name" class="No_1 Jut_caption_1 rightbers" width="29"></td>
+<td id="B-B1-1.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-B1-1&quot;)">-</td>
+<td id="B-B1-1.rate_td" class="rightbers"><span class="multiple_Red">-</span></td>
+<td id="B-B1-1.money_td" proname="冠軍" ballproname="冠軍『 1 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border:0;">
+<table border="0" cellspacing="0" cellpadding="0" width="173">
+<tbody>
+<tr id="B-B1-2.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-B1-2.name" class="No_2 Jut_caption_1 rightbers" width="29"></td>
+<td id="B-B1-2.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-B1-2&quot;)">-</td>
+<td id="B-B1-2.rate_td" class="rightbers"><span class="multiple_Red">-</span></td>
+<td id="B-B1-2.money_td" proname="冠軍" ballproname="冠軍『 2 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border:0;">
+<table border="0" cellspacing="0" cellpadding="0" width="173">
+<tbody>
+<tr id="B-B1-3.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-B1-3.name" class="No_3 Jut_caption_1 rightbers" width="29"></td>
+<td id="B-B1-3.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-B1-3&quot;)">-</td>
+<td id="B-B1-3.rate_td" class="rightbers"><span class="multiple_Red">-</span></td>
+<td id="B-B1-3.money_td" proname="冠軍" ballproname="冠軍『 3 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border:0;">
+<table border="0" cellspacing="0" cellpadding="0" width="173">
+<tbody>
+<tr id="B-B1-4.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-B1-4.name" class="No_4 Jut_caption_1 rightbers" width="29"></td>
+<td id="B-B1-4.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-B1-4&quot;)">-</td>
+<td id="B-B1-4.rate_td" class="rightbers"><span class="multiple_Red">-</span></td>
+<td id="B-B1-4.money_td" proname="冠軍" ballproname="冠軍『 4 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+<td valign="top">
+<table class="Ball_List" border="0" cellspacing="1" cellpadding="0" width="175">
+<tbody>
+<tr>
+<td colspan="3" style="border:0;">
+<table border="0" cellspacing="0" cellpadding="0" width="173">
+<tbody>
+<tr id="B-B1-5.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-B1-5.name" class="No_5 Jut_caption_1 rightbers" width="29"></td>
+<td id="B-B1-5.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-B1-5&quot;)">-</td>
+<td id="B-B1-5.rate_td" class="rightbers"><span class="multiple_Red">-</span></td>
+<td id="B-B1-5.money_td" proname="冠軍" ballproname="冠軍『 5 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border:0;">
+<table border="0" cellspacing="0" cellpadding="0" width="173">
+<tbody>
+<tr id="B-B1-6.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-B1-6.name" class="No_6 Jut_caption_1 rightbers" width="29"></td>
+<td id="B-B1-6.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-B1-6&quot;)">-</td>
+<td id="B-B1-6.rate_td" class="rightbers"><span class="multiple_Red">-</span></td>
+<td id="B-B1-6.money_td" proname="冠軍" ballproname="冠軍『 6 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border:0;">
+<table border="0" cellspacing="0" cellpadding="0" width="173">
+<tbody>
+<tr id="B-B1-7.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-B1-7.name" class="No_7 Jut_caption_1 rightbers" width="29"></td>
+<td id="B-B1-7.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-B1-7&quot;)">-</td>
+<td id="B-B1-7.rate_td" class="rightbers"><span class="multiple_Red">-</span></td>
+<td id="B-B1-7.money_td" proname="冠軍" ballproname="冠軍『 7 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border:0;">
+<table border="0" cellspacing="0" cellpadding="0" width="173">
+<tbody>
+<tr id="B-B1-8.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-B1-8.name" class="No_8 Jut_caption_1 rightbers" width="29"></td>
+<td id="B-B1-8.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-B1-8&quot;)">-</td>
+<td id="B-B1-8.rate_td" class="rightbers"><span class="multiple_Red">-</span></td>
+<td id="B-B1-8.money_td" proname="冠軍" ballproname="冠軍『 8 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+<td valign="top">
+<table class="Ball_List" border="0" cellspacing="1" cellpadding="0" width="175">
+<tbody>
+<tr>
+<td colspan="3" style="border:0;">
+<table border="0" cellspacing="0" cellpadding="0" width="173">
+<tbody>
+<tr id="B-B1-9.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-B1-9.name" class="No_9 Jut_caption_1 rightbers" width="29"></td>
+<td id="B-B1-9.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-B1-9&quot;)">-</td>
+<td id="B-B1-9.rate_td" class="rightbers"><span class="multiple_Red">-</span></td>
+<td id="B-B1-9.money_td" proname="冠軍" ballproname="冠軍『 9 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border:0;">
+<table border="0" cellspacing="0" cellpadding="0" width="173">
+<tbody>
+<tr id="B-B1-10.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-B1-10.name" class="No_10 Jut_caption_1 rightbers" width="29"></td>
+<td id="B-B1-10.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-B1-10&quot;)">-</td>
+<td id="B-B1-10.rate_td" class="rightbers"><span class="multiple_Red">-</span></td>
+<td id="B-B1-10.money_td" proname="冠軍" ballproname="冠軍『 10 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border:0;">
+<table border="0" cellspacing="0" cellpadding="0" width="173">
+<tbody>
+<tr id="B-LH-1L.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-LH-1L.name" class="Jut_caption_1 rightbers" width="54">龍</td>
+<td id="B-LH-1L.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-LH-1L&quot;)">-</td>
+<td id="B-LH-1L.rate_td" class="rightbers"><span class="multiple_Red">-</span></td>
+<td id="B-LH-1L.money_td" proname="1-5龍虎" ballproname="冠軍『 龍 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border:0;">
+<table border="0" cellspacing="0" cellpadding="0" width="173">
+<tbody>
+<tr id="B-LH-1H.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-LH-1H.name" class="Jut_caption_1 rightbers" width="54">虎</td>
+<td id="B-LH-1H.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-LH-1H&quot;)">-</td>
+<td id="B-LH-1H.rate_td" class="rightbers"><span class="multiple_Red">-</span></td>
+<td id="B-LH-1H.money_td" proname="1-5龍虎" ballproname="冠軍『 虎 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+<td valign="top">
+<table class="Ball_List" border="0" cellspacing="1" cellpadding="0" width="175">
+<tbody>
+<tr>
+<td colspan="3" style="border:0;">
+<table border="0" cellspacing="0" cellpadding="0" width="173">
+<tbody>
+<tr id="B-DX-11.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-DX-11.name" class="Jut_caption_1 rightbers" width="54">大</td>
+<td id="B-DX-11.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-DX-11&quot;)">-</td>
+<td id="B-DX-11.rate_td" class="rightbers"><span class="multiple_Red">-</span></td>
+<td id="B-DX-11.money_td" proname="1-10大小" ballproname="冠軍『 大 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border:0;">
+<table border="0" cellspacing="0" cellpadding="0" width="173">
+<tbody>
+<tr id="B-DX-10.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-DX-10.name" class="Jut_caption_1 rightbers" width="54">小</td>
+<td id="B-DX-10.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-DX-10&quot;)">-</td>
+<td id="B-DX-10.rate_td" class="rightbers"><span class="multiple_Red">-</span></td>
+<td id="B-DX-10.money_td" proname="1-10大小" ballproname="冠軍『 小 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border:0;">
+<table border="0" cellspacing="0" cellpadding="0" width="173">
+<tbody>
+<tr id="B-DS-11.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-DS-11.name" class="Jut_caption_1 rightbers" width="54">單</td>
+<td id="B-DS-11.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-DS-11&quot;)">-</td>
+<td id="B-DS-11.rate_td" class="rightbers"><span class="multiple_Red">-</span></td>
+<td id="B-DS-11.money_td" proname="1-10單雙" ballproname="冠軍『 單 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border:0;">
+<table border="0" cellspacing="0" cellpadding="0" width="173">
+<tbody>
+<tr id="B-DS-12.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-DS-12.name" class="Jut_caption_1 rightbers" width="54">雙</td>
+<td id="B-DS-12.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-DS-12&quot;)">-</td>
+<td id="B-DS-12.rate_td" class="rightbers"><span class="multiple_Red">-</span></td>
+<td id="B-DS-12.money_td" proname="1-10單雙" ballproname="冠軍『 雙 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr></tbody></table>
+<table border="0" style="margin-top:2px" cellspacing="0" cellpadding="0" width="700">
+<tbody>
+<tr><td class="td_caption_1 F_bold" colspan="4">亞軍</td></tr>
+<tr>
+<td valign="top">
+<table class="Ball_List" border="0" cellspacing="1" cellpadding="0" width="175">
+<tbody>
+<tr>
+<td colspan="3" style="border:0;">
+<table border="0" cellspacing="0" cellpadding="0" width="173">
+<tbody>
+<tr id="B-B2-1.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-B2-1.name" class="No_1 Jut_caption_1 rightbers" width="29"></td>
+<td id="B-B2-1.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-B2-1&quot;)">-</td>
+<td id="B-B2-1.rate_td" class="rightbers"><span class="multiple_Red">-</span></td>
+<td id="B-B2-1.money_td" proname="亞軍" ballproname="亞軍『 1 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border:0;">
+<table border="0" cellspacing="0" cellpadding="0" width="173">
+<tbody>
+<tr id="B-B2-2.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-B2-2.name" class="No_2 Jut_caption_1 rightbers" width="29"></td>
+<td id="B-B2-2.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-B2-2&quot;)">-</td>
+<td id="B-B2-2.rate_td" class="rightbers"><span class="multiple_Red">-</span></td>
+<td id="B-B2-2.money_td" proname="亞軍" ballproname="亞軍『 2 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border:0;">
+<table border="0" cellspacing="0" cellpadding="0" width="173">
+<tbody>
+<tr id="B-B2-3.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-B2-3.name" class="No_3 Jut_caption_1 rightbers" width="29"></td>
+<td id="B-B2-3.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-B2-3&quot;)">-</td>
+<td id="B-B2-3.rate_td" class="rightbers"><span class="multiple_Red">-</span></td>
+<td id="B-B2-3.money_td" proname="亞軍" ballproname="亞軍『 3 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border:0;">
+<table border="0" cellspacing="0" cellpadding="0" width="173">
+<tbody>
+<tr id="B-B2-4.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-B2-4.name" class="No_4 Jut_caption_1 rightbers" width="29"></td>
+<td id="B-B2-4.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-B2-4&quot;)">-</td>
+<td id="B-B2-4.rate_td" class="rightbers"><span class="multiple_Red">-</span></td>
+<td id="B-B2-4.money_td" proname="亞軍" ballproname="亞軍『 4 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+<td valign="top">
+<table class="Ball_List" border="0" cellspacing="1" cellpadding="0" width="175">
+<tbody>
+<tr>
+<td colspan="3" style="border:0;">
+<table border="0" cellspacing="0" cellpadding="0" width="173">
+<tbody>
+<tr id="B-B2-5.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-B2-5.name" class="No_5 Jut_caption_1 rightbers" width="29"></td>
+<td id="B-B2-5.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-B2-5&quot;)">-</td>
+<td id="B-B2-5.rate_td" class="rightbers"><span class="multiple_Red">-</span></td>
+<td id="B-B2-5.money_td" proname="亞軍" ballproname="亞軍『 5 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border:0;">
+<table border="0" cellspacing="0" cellpadding="0" width="173">
+<tbody>
+<tr id="B-B2-6.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-B2-6.name" class="No_6 Jut_caption_1 rightbers" width="29"></td>
+<td id="B-B2-6.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-B2-6&quot;)">-</td>
+<td id="B-B2-6.rate_td" class="rightbers"><span class="multiple_Red">-</span></td>
+<td id="B-B2-6.money_td" proname="亞軍" ballproname="亞軍『 6 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border:0;">
+<table border="0" cellspacing="0" cellpadding="0" width="173">
+<tbody>
+<tr id="B-B2-7.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-B2-7.name" class="No_7 Jut_caption_1 rightbers" width="29"></td>
+<td id="B-B2-7.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-B2-7&quot;)">-</td>
+<td id="B-B2-7.rate_td" class="rightbers"><span class="multiple_Red">-</span></td>
+<td id="B-B2-7.money_td" proname="亞軍" ballproname="亞軍『 7 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border:0;">
+<table border="0" cellspacing="0" cellpadding="0" width="173">
+<tbody>
+<tr id="B-B2-8.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-B2-8.name" class="No_8 Jut_caption_1 rightbers" width="29"></td>
+<td id="B-B2-8.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-B2-8&quot;)">-</td>
+<td id="B-B2-8.rate_td" class="rightbers"><span class="multiple_Red">-</span></td>
+<td id="B-B2-8.money_td" proname="亞軍" ballproname="亞軍『 8 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+<td valign="top">
+<table class="Ball_List" border="0" cellspacing="1" cellpadding="0" width="175">
+<tbody>
+<tr>
+<td colspan="3" style="border:0;">
+<table border="0" cellspacing="0" cellpadding="0" width="173">
+<tbody>
+<tr id="B-B2-9.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-B2-9.name" class="No_9 Jut_caption_1 rightbers" width="29"></td>
+<td id="B-B2-9.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-B2-9&quot;)">-</td>
+<td id="B-B2-9.rate_td" class="rightbers"><span class="multiple_Red">-</span></td>
+<td id="B-B2-9.money_td" proname="亞軍" ballproname="亞軍『 9 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border:0;">
+<table border="0" cellspacing="0" cellpadding="0" width="173">
+<tbody>
+<tr id="B-B2-10.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-B2-10.name" class="No_10 Jut_caption_1 rightbers" width="29"></td>
+<td id="B-B2-10.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-B2-10&quot;)">-</td>
+<td id="B-B2-10.rate_td" class="rightbers"><span class="multiple_Red">-</span></td>
+<td id="B-B2-10.money_td" proname="亞軍" ballproname="亞軍『 10 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border:0;">
+<table border="0" cellspacing="0" cellpadding="0" width="173">
+<tbody>
+<tr id="B-LH-2L.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-LH-2L.name" class="Jut_caption_1 rightbers" width="54">龍</td>
+<td id="B-LH-2L.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-LH-2L&quot;)">-</td>
+<td id="B-LH-2L.rate_td" class="rightbers"><span class="multiple_Red">-</span></td>
+<td id="B-LH-2L.money_td" proname="1-5龍虎" ballproname="亞軍『 龍 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border:0;">
+<table border="0" cellspacing="0" cellpadding="0" width="173">
+<tbody>
+<tr id="B-LH-2H.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-LH-2H.name" class="Jut_caption_1 rightbers" width="54">虎</td>
+<td id="B-LH-2H.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-LH-2H&quot;)">-</td>
+<td id="B-LH-2H.rate_td" class="rightbers"><span class="multiple_Red">-</span></td>
+<td id="B-LH-2H.money_td" proname="1-5龍虎" ballproname="亞軍『 虎 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+<td valign="top">
+<table class="Ball_List" border="0" cellspacing="1" cellpadding="0" width="175">
+<tbody>
+<tr>
+<td colspan="3" style="border:0;">
+<table border="0" cellspacing="0" cellpadding="0" width="173">
+<tbody>
+<tr id="B-DX-21.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-DX-21.name" class="Jut_caption_1 rightbers" width="54">大</td>
+<td id="B-DX-21.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-DX-21&quot;)">-</td>
+<td id="B-DX-21.rate_td" class="rightbers"><span class="multiple_Red">-</span></td>
+<td id="B-DX-21.money_td" proname="1-10大小" ballproname="亞軍『 大 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border:0;">
+<table border="0" cellspacing="0" cellpadding="0" width="173">
+<tbody>
+<tr id="B-DX-20.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-DX-20.name" class="Jut_caption_1 rightbers" width="54">小</td>
+<td id="B-DX-20.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-DX-20&quot;)">-</td>
+<td id="B-DX-20.rate_td" class="rightbers"><span class="multiple_Red">-</span></td>
+<td id="B-DX-20.money_td" proname="1-10大小" ballproname="亞軍『 小 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border:0;">
+<table border="0" cellspacing="0" cellpadding="0" width="173">
+<tbody>
+<tr id="B-DS-21.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-DS-21.name" class="Jut_caption_1 rightbers" width="54">單</td>
+<td id="B-DS-21.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-DS-21&quot;)">-</td>
+<td id="B-DS-21.rate_td" class="rightbers"><span class="multiple_Red">-</span></td>
+<td id="B-DS-21.money_td" proname="1-10單雙" ballproname="亞軍『 單 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border:0;">
+<table border="0" cellspacing="0" cellpadding="0" width="173">
+<tbody>
+<tr id="B-DS-22.tr" isseled="0" class="Ball_tr_H_h" isclosed="1">
+<td id="B-DS-22.name" class="Jut_caption_1 rightbers" width="54">雙</td>
+<td id="B-DS-22.rate_ks" class="multiple_Red" style="display:none" onclick="setKsSelTr(this,&quot;B-DS-22&quot;)">-</td>
+<td id="B-DS-22.rate_td" class="rightbers"><span class="multiple_Red">-</span></td>
+<td id="B-DS-22.money_td" proname="1-10單雙" ballproname="亞軍『 雙 』" width="62">封盤</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr></tbody></table>
+</td></tr></tbody></table>
+<br>
+<table border="0" cellspacing="0" cellpadding="0" width="700">
+<tbody>
+<tr id="btn_order_tr"><td class="font_r" align="middle">
+<span id="span_shortcut_money_1" style="display:none">金額&nbsp;<input type="text" id="shortcut_money_1" name="shortcut_money_1" onblur="this.className=&#39;inp1&#39;;" class="inp1" onfocus="this.className=&#39;inp1m&#39;" onkeypress="digitOnly(event)" onkeyup="TxtToBtnOrder(event,this,&#39;btn_order_1&#39;)" maxlength="12" size="10"></span>
+<input type="button" id="btn_reset_1" name="btn_reset_1" class="btn2" onmouseover="this.className=&#39;btn2m&#39;" onmouseout="this.className=&#39;btn2&#39;" onclick="eliminate_jeu();" value="重 填">
+<input type="button" id="btn_order_1" name="btn_order_1" class="btn2" onmouseover="this.className=&#39;btn2m&#39;" onmouseout="this.className=&#39;btn2&#39;" onclick="confirm_Order_Tip(1);" value="下 註">
+</td></tr>
+<tr id="btn_order_hid_tr" style="display:none"><td class="font_r" align="middle">
+下注中，請稍後......
+</td></tr>
+</tbody></table>
+<div id="Result_Top_Div" style="POSITION: absolute; DISPLAY: block; TOP: 11px; LEFT: 713px"><table class="t_list" border="0" cellspacing="1" cellpadding="0" width="160">
+<tbody>
+<tr><td class="td_caption_1 F_bold" colspan="2">兩面長龍排行</td></tr>
+<tr class="t_list_tr_0">
+<td class="f_left TDb_B">冠亞軍和 - 單</td>
+<td class="TDb_R">6&nbsp;期</td>
+</tr>
+<tr class="t_list_tr_0">
+<td class="f_left TDb_B">第3名 - 大</td>
+<td class="TDb_R">4&nbsp;期</td>
+</tr>
+<tr class="t_list_tr_0">
+<td class="f_left TDb_B">第3名 - 龍</td>
+<td class="TDb_R">4&nbsp;期</td>
+</tr>
+<tr class="t_list_tr_0">
+<td class="f_left TDb_B">冠軍 - 龍</td>
+<td class="TDb_R">2&nbsp;期</td>
+</tr>
+<tr class="t_list_tr_0">
+<td class="f_left TDb_B">第4名 - 雙</td>
+<td class="TDb_R">2&nbsp;期</td>
+</tr>
+<tr class="t_list_tr_0">
+<td class="f_left TDb_B">第8名 - 小</td>
+<td class="TDb_R">2&nbsp;期</td>
+</tr>
+<tr class="t_list_tr_0">
+<td class="f_left TDb_B">第9名 - 大</td>
+<td class="TDb_R">2&nbsp;期</td>
+</tr>
+<tr class="t_list_tr_0">
+<td class="f_left TDb_B">第10名 - 小</td>
+<td class="TDb_R">2&nbsp;期</td>
+</tr>
+<tr class="t_list_tr_0">
+<td class="f_left TDb_B">第10名 - 單</td>
+<td class="TDb_R">2&nbsp;期</td>
+</tr>
+</tbody></table>
+
+</div>
+<br>
+
+
+
+<div id="lovediv" style="position:absolute;display:none;z-index:10;left:0px;top:0px;width:100%;height:100%;background-color:#666666;filter:Alpha(opacity=20);opacity:0.2;"></div>
+</body></html>

@@ -1,0 +1,169 @@
+
+<!-- saved from url=(0054)http://alia7557.banlion.cn:45699/member/member_menu.do -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE11">
+<link href="./TopMenu.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" language="JavaScript" src="./lang_zh_TW.js.下载"></script>
+<script type="text/javascript" language="JavaScript" src="./forbid.js(1).下载"></script>
+<script type="text/javascript" language="JavaScript" src="./ajax.js.下载"></script>
+<script type="text/javascript" language="JavaScript" src="./activeX_Embed.js.下载"></script>
+<script type="text/javascript" language="JavaScript" src="./TopMenu.js.下载"></script>
+<script type="text/javascript" language="javascript">
+var projectList = new Array();
+var allMenuMap = {};
+
+projectList[projectList.length] = 'G';
+var temMenuList = new Array();
+temMenuList[temMenuList.length] = new Array(
+'G','MEMBER','101','兩面盤','1','1','game/g_ball_2mp.do');temMenuList[temMenuList.length] = new Array(
+'G','MEMBER','102','數字盤','1','1','game/g_ball_szp.do');temMenuList[temMenuList.length] = new Array(
+'G','MEMBER','111','第一球','1','2','game/g_ball_1_8.do?ball_idx=1');temMenuList[temMenuList.length] = new Array(
+'G','MEMBER','112','第二球','1','2','game/g_ball_1_8.do?ball_idx=2');temMenuList[temMenuList.length] = new Array(
+'G','MEMBER','113','第三球','1','2','game/g_ball_1_8.do?ball_idx=3');temMenuList[temMenuList.length] = new Array(
+'G','MEMBER','114','第四球','1','2','game/g_ball_1_8.do?ball_idx=4');temMenuList[temMenuList.length] = new Array(
+'G','MEMBER','115','第五球','1','2','game/g_ball_1_8.do?ball_idx=5');temMenuList[temMenuList.length] = new Array(
+'G','MEMBER','116','第六球','1','2','game/g_ball_1_8.do?ball_idx=6');temMenuList[temMenuList.length] = new Array(
+'G','MEMBER','117','第七球','1','2','game/g_ball_1_8.do?ball_idx=7');temMenuList[temMenuList.length] = new Array(
+'G','MEMBER','118','第八球','1','2','game/g_ball_1_8.do?ball_idx=8');temMenuList[temMenuList.length] = new Array(
+'G','MEMBER','119','總和、龍虎','1','2','game/g_ball_zh_lh.do');temMenuList[temMenuList.length] = new Array(
+'G','MEMBER','120','連碼','1','2','game/g_ball_lm.do');allMenuMap['G']=temMenuList;
+projectList[projectList.length] = 'C';
+var temMenuList = new Array();
+temMenuList[temMenuList.length] = new Array(
+'C','MEMBER','201','兩面盤','1','1','game/c_ball_2mp.do');temMenuList[temMenuList.length] = new Array(
+'C','MEMBER','202','數字盤','1','1','game/c_ball_szp.do');temMenuList[temMenuList.length] = new Array(
+'C','MEMBER','203','綜合','1','1','game/c_ball_zh.do');temMenuList[temMenuList.length] = new Array(
+'C','MEMBER','211','第一球','1','2','game/c_ball_1_5.do?ball_idx=1');temMenuList[temMenuList.length] = new Array(
+'C','MEMBER','212','第二球','1','2','game/c_ball_1_5.do?ball_idx=2');temMenuList[temMenuList.length] = new Array(
+'C','MEMBER','213','第三球','1','2','game/c_ball_1_5.do?ball_idx=3');temMenuList[temMenuList.length] = new Array(
+'C','MEMBER','214','第四球','1','2','game/c_ball_1_5.do?ball_idx=4');temMenuList[temMenuList.length] = new Array(
+'C','MEMBER','215','第五球','1','2','game/c_ball_1_5.do?ball_idx=5');allMenuMap['C']=temMenuList;
+projectList[projectList.length] = 'B';
+var temMenuList = new Array();
+temMenuList[temMenuList.length] = new Array(
+'B','MEMBER','301','兩面盤','1','1','game/b_ball_2mp.do');temMenuList[temMenuList.length] = new Array(
+'B','MEMBER','302','數字盤','1','1','game/b_ball_szp.do');temMenuList[temMenuList.length] = new Array(
+'B','MEMBER','311','冠、亞軍 組合','1','2','game/b_ball_h12.do');temMenuList[temMenuList.length] = new Array(
+'B','MEMBER','312','三、四、五、六名','1','2','game/b_ball_h3456.do');temMenuList[temMenuList.length] = new Array(
+'B','MEMBER','313','七、八、九、十名','1','2','game/b_ball_h7890.do');allMenuMap['B']=temMenuList;
+projectList[projectList.length] = 'N';
+var temMenuList = new Array();
+temMenuList[temMenuList.length] = new Array(
+'N','MEMBER','401','兩面盤','1','1','game/n_ball_2mp.do');temMenuList[temMenuList.length] = new Array(
+'N','MEMBER','402','數字盤','1','1','game/n_ball_szp.do');temMenuList[temMenuList.length] = new Array(
+'N','MEMBER','411','第一球','1','2','game/n_ball_1_8.do?ball_idx=1');temMenuList[temMenuList.length] = new Array(
+'N','MEMBER','412','第二球','1','2','game/n_ball_1_8.do?ball_idx=2');temMenuList[temMenuList.length] = new Array(
+'N','MEMBER','413','第三球','1','2','game/n_ball_1_8.do?ball_idx=3');temMenuList[temMenuList.length] = new Array(
+'N','MEMBER','414','第四球','1','2','game/n_ball_1_8.do?ball_idx=4');temMenuList[temMenuList.length] = new Array(
+'N','MEMBER','415','第五球','1','2','game/n_ball_1_8.do?ball_idx=5');temMenuList[temMenuList.length] = new Array(
+'N','MEMBER','416','第六球','1','2','game/n_ball_1_8.do?ball_idx=6');temMenuList[temMenuList.length] = new Array(
+'N','MEMBER','417','第七球','1','2','game/n_ball_1_8.do?ball_idx=7');temMenuList[temMenuList.length] = new Array(
+'N','MEMBER','418','第八球','1','2','game/n_ball_1_8.do?ball_idx=8');temMenuList[temMenuList.length] = new Array(
+'N','MEMBER','419','總和、龍虎','1','2','game/n_ball_zh_lh.do');temMenuList[temMenuList.length] = new Array(
+'N','MEMBER','420','連碼','1','2','game/n_ball_lm.do');allMenuMap['N']=temMenuList;
+projectList[projectList.length] = 'S';
+var temMenuList = new Array();
+temMenuList[temMenuList.length] = new Array(
+'S','MEMBER','501','大小骰寶','1','1','game/s_ball_dxsg.do');allMenuMap['S']=temMenuList;
+
+
+function SelectType(LT)
+{
+	for(var p=0; p<projectList.length; p++)
+	{
+		document.getElementById("bST_"+projectList[p]).className="bST_1";
+	}
+    document.getElementById("bST_" + LT).className="bST_1_s";
+	
+    s_LT=LT;
+    body_backdrop.className='backdrop_1';
+    
+    var temList = allMenuMap[LT];
+	if(temList!=null)
+	{
+		var mcID = "";
+	    var mcUrl = "";
+	    var menuHtml = "";
+		for(var i=0; i<temList.length; i++)
+		{
+			if(i==0)
+			{
+				mcID  = temList[i][2];
+				mcUrl = temList[i][6];
+			}
+			else
+			{
+				if("B"==temList[i][0] && temList[i][6].indexOf("/b_ball_h12.")>=0)
+				{
+					mcID  = temList[i][2];
+					mcUrl = temList[i][6];
+				}
+				menuHtml += "&nbsp;|&nbsp;";
+			}
+			menuHtml += "<a href='javascript:void(0)' onclick='Select_MC(\""+temList[i][2]+"\");MF_URL(\""+temList[i][6]+"\")' id='MC_"+temList[i][2]+"'>"+temList[i][3]+"</a>";
+		}
+		document.getElementById("Type_List").innerHTML = menuHtml;
+		
+		Select_MC(mcID);
+		MF_URL(mcUrl);
+	}
+}
+
+///////////////////更新公告
+function logout(url,openType)
+{
+  	window.top.open(url,openType);
+}
+
+function toMemIndex()
+{
+	parent.location.reload();//刷新本页面
+}
+</script>
+</head>
+
+<body id="body_backdrop" onload="SelectType(&#39;B&#39;) " class="backdrop_1">
+
+<div id="gtop">
+   <div class="header">
+       <div class="logo" onclick="toMemIndex()">
+            			<script language="javascript">
+							Make_FlashPlay('images/154.swf','top_c','200','80');
+						</script><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,22,0" width="200" height="80" id="top_c"><param name="wmode" value="transparent"><param name="movie" value="images/154.swf"><param name="FlashVars" value="pageID=0"><param name="quality" value="high"><param name="menu" value="false"><embed src="images/154.swf" name="top_c" quality="high" wmode="transparent" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?p1_prod_version=shockwaveflash" width="200" height="80"></object>
+
+       </div>
+          
+       <div class="nav_box">
+            <div class="t">
+           			<a href="javascript:void(0)" class="T_a" id="M_1" onclick="Select_M(&#39;1&#39;);MF_URL(&#39;common/creditInfo.do&#39;)">信用資料</a> <span>·</span>
+					<a href="javascript:void(0)" class="T_a" id="M_2" onclick="Select_M(&#39;2&#39;);MF_URL(&#39;common/update_password.do&#39;)">修改密碼</a> <span>·</span>
+					<a href="javascript:void(0)" class="T_a" id="M_3" onclick="Select_M(&#39;3&#39;);MF_URL(&#39;common/Report_JeuWJS.do&#39; )">下注明細</a> <span>·</span>
+					<a href="javascript:void(0)" class="T_a" id="M_4" onclick="Select_M(&#39;4&#39;);MF_URL(&#39;common/Report_week.do&#39;)">結算報表</a> <span>·</span>
+					<a href="javascript:void(0)" class="T_a" id="M_5" onclick="Select_M(&#39;5&#39;);MF_URL(&#39;common/result_g.do?game_type=%%SETGAMETYPE%%&#39; )">歷史開獎</a> <span>·</span>
+					<a href="javascript:void(0)" class="T_a" id="M_6" onclick="Select_M(&#39;6&#39;);MF_URL(&#39;common/game_rule.jsp&#39;)">規則</a>  <span>·</span>
+					<a href="javascript:void(0)" style="color:#ffcc00" id="M_7" onclick="logout(&#39;http://www.baidu.com&#39;,&#39;_self&#39;)">退出</a>
+
+           </div>
+           <div class="b">
+            				<span class="bST_1" id="bST_G" name="bST_G" onclick="SelectType(&#39;G&#39;);" type="button" style="cursor:pointer;">廣東快樂十分</span>
+<span class="bST_1" id="bST_C" name="bST_C" onclick="SelectType(&#39;C&#39;);" type="button" style="cursor:pointer;">重慶時時彩</span>
+<span class="bST_1_s" id="bST_B" name="bST_B" onclick="SelectType(&#39;B&#39;);" type="button" style="cursor:pointer;">北京賽車(PK10)</span>
+<span class="bST_1" id="bST_N" name="bST_N" onclick="SelectType(&#39;N&#39;);" type="button" style="cursor:pointer;">幸運農場</span>
+<span class="bST_1" id="bST_S" name="bST_S" onclick="SelectType(&#39;S&#39;);" type="button" style="cursor:pointer;">江蘇骰寶快3</span>
+
+
+            </div>
+       </div>
+    </div>
+</div>
+
+<div class="smmenu">
+     <ul class="l"><span class="ico"></span><a class="txt">请检验您的用户</a></ul>
+	 <ul class="r">
+	    <span id="Type_List" name="Type_List"><a href="javascript:void(0)" onclick="Select_MC(&quot;301&quot;);MF_URL(&quot;game/b_ball_2mp.do&quot;)" id="MC_301">兩面盤</a>&nbsp;|&nbsp;<a href="javascript:void(0)" onclick="Select_MC(&quot;302&quot;);MF_URL(&quot;game/b_ball_szp.do&quot;)" id="MC_302">數字盤</a>&nbsp;|&nbsp;<a href="javascript:void(0)" onclick="Select_MC(&quot;311&quot;);MF_URL(&quot;game/b_ball_h12.do&quot;)" id="MC_311" class="Font_R">冠、亞軍 組合</a>&nbsp;|&nbsp;<a href="javascript:void(0)" onclick="Select_MC(&quot;312&quot;);MF_URL(&quot;game/b_ball_h3456.do&quot;)" id="MC_312">三、四、五、六名</a>&nbsp;|&nbsp;<a href="javascript:void(0)" onclick="Select_MC(&quot;313&quot;);MF_URL(&quot;game/b_ball_h7890.do&quot;)" id="MC_313">七、八、九、十名</a></span>
+	 </ul>
+</div>
+
+
+</body></html>

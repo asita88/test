@@ -468,7 +468,7 @@ function orderCB(req)//下单返回消息
     			refreshRateVal();
     		}
 		}
-    	parent.frames["leftFrame"].location = "left_order_tip.do?is_success=1&issue_id="+curIssueID+"&game_type="+gameType; //下单提示界面
+    	//parent.frames["leftFrame"].location = "left_order_tip.do?is_success=1&issue_id="+curIssueID+"&game_type="+gameType; //下单提示界面
     }
     else if(returnVal.indexOf('ORDER_ERROR') == 0) //下单失败
 	{
@@ -488,7 +488,7 @@ function orderCB(req)//下单返回消息
     		refreshRateVal();
     		
 		}
-    	parent.frames["leftFrame"].location = "left_order_tip.do?is_success=0&issue_id="+curIssueID+"&game_type="+gameType; //下单提示界面
+    	//parent.frames["leftFrame"].location = "left_order_tip.do?is_success=0&issue_id="+curIssueID+"&game_type="+gameType; //下单提示界面
 	}
 }
 

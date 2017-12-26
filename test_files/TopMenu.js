@@ -45,8 +45,8 @@ function Select_M(M_ID)
     	s_obj.className="Font_V";
     	oldMId = M_ID;
 	}
-    if(parent.frames["leftFrame"].location.toString().indexOf("game/user_info.") < 0)
+    //if(parent.frames["leftFrame"].location.toString().indexOf("game/user_info.") < 0)
     {
-    	parent.frames["leftFrame"].location = "game/user_info.do?s="+Math.floor(Math.random()*1000)+"&d="+new Date().getMilliseconds();//默认指定到用户信息界面
+    	//parent.frames["leftFrame"].location = "game/user_info.do?s="+Math.floor(Math.random()*1000)+"&d="+new Date().getMilliseconds();//默认指定到用户信息界面
     }
 }

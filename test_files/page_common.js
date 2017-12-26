@@ -40,7 +40,7 @@ function Left_Jeu(keyStr) //点赔率跳转到左侧下单界面
 				+ "&issue_max="+temIssueMax
 				+ "&win_max="+temWinMax;
 		
-		parent.frames["leftFrame"].location = temUrl;
+		//parent.frames["leftFrame"].location = temUrl;
 	}
 }
 
@@ -140,7 +140,7 @@ function toleft_index_jeu(isParent) //跳转左侧用户信息界面
 	
 	if(isParent)
 	{
-		parent.frames["leftFrame"].location = "user_info.do?s="+Math.floor(Math.random()*1000)+"&d="+new Date().getMilliseconds();
+		//parent.frames["leftFrame"].location = "user_info.do?s="+Math.floor(Math.random()*1000)+"&d="+new Date().getMilliseconds();
 	}
 	else
 	{
